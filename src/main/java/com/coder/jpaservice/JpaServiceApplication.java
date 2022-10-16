@@ -12,13 +12,12 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 public class JpaServiceApplication implements CommandLineRunner {
-
 	@Autowired
 	ClientRepository client;
-
 	public static void main(String[] args) {
 
 		SpringApplication.run(JpaServiceApplication.class, args);
+
 	}
 
 	@Override
@@ -30,10 +29,12 @@ public class JpaServiceApplication implements CommandLineRunner {
 			cliente.setLastName("Maccio");
 			cliente.setAddress("Buenos Aires");
 			cliente.setBirth(LocalDate.of(2022,10,10));
-			cliente.setIdentityDocument("123456");
+			cliente.setIdentityDocument("123456711");
 			cliente.setState('V');
 			client.save(cliente);
 			System.out.println("Se inserto:");
+
+			//esta puesto 1L L de long ya que tengo el id declarado como long
 			client.findById(1L).stream().forEach(a -> System.out.println(a.getName() + "\n"
 					+ a.getLastName() + "\n" + a.getAddress() + "\n" + a.getIdentityDocument()
 					+ "\n" + a.getBirth()));
