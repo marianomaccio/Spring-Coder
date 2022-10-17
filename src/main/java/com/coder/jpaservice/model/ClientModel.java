@@ -32,7 +32,7 @@ public class ClientModel {
     @Column
     private char state;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<PurchaseModel> listPurchase;
+    @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL)
+    private List<BillModel> billModel;
 
 }

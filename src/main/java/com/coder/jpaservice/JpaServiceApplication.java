@@ -1,7 +1,7 @@
 package com.coder.jpaservice;
 
-import com.coder.jpaservice.model.ClientModel;
-import com.coder.jpaservice.repository.ClientRepository;
+import com.coder.jpaservice.model.UserModel;
+import com.coder.jpaservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @SpringBootApplication
 public class JpaServiceApplication implements CommandLineRunner {
 	@Autowired
-	ClientRepository client;
+	UserRepository userR;
 	public static void main(String[] args) {
 
 		SpringApplication.run(JpaServiceApplication.class, args);
@@ -23,22 +23,18 @@ public class JpaServiceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		try{
-			ClientModel cliente = new ClientModel();
+			UserModel user = new UserModel();
 
-			cliente.setName("Mariano");
-			cliente.setLastName("Maccio");
-			cliente.setAddress("Buenos Aires");
-			cliente.setBirth(LocalDate.of(2022,10,10));
-			cliente.setIdentityDocument("123456711");
-			cliente.setState('V');
-			client.save(cliente);
+			user.setUserName("Mariano");
+			user.setPassword("root");
+			userR.save(user);
 			System.out.println("Se inserto:");
 
 			//esta puesto 1L L de long ya que tengo el id declarado como long
-			client.findById(1L).stream().forEach(a -> System.out.println(a.getName() + "\n"
-					+ a.getLastName() + "\n" + a.getAddress() + "\n" + a.getIdentityDocument()
-					+ "\n" + a.getBirth()));
-			System.out.println("Cliente guardado");
+			userR.findById(1L).stream().forEach(a -> System.out.println(a.getUserName() + "\n"
+					+ a.getPassword() ));
+
+			System.out.println("User guardado");
 
 		}catch (Exception e){
 			e.getMessage();
