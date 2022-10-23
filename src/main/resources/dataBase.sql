@@ -67,5 +67,7 @@ CONSTRAINT FK_product_id FOREIGN KEY (product_id) references coder_products(id_p
 CREATE TABLE coder_user(
 id_user INT PRIMARY KEY AUTO_INCREMENT,
 user_name VARCHAR(45),
-password VARCHAR(45)
+password VARCHAR(45),
+client_id INT UNIQUE NOT NULL,
+CONSTRAINT FK_id_client FOREIGN KEY (client_id) REFERENCES coder_clients(id_client)
 );

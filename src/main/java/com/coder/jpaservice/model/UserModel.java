@@ -20,4 +20,8 @@ public class UserModel {
     @Column
     private String password;
 
+    @OneToOne
+    @JoinColumn(name = "client_id")
+    private ClientModel clientModel;
+
 }
