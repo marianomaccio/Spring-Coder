@@ -1,7 +1,6 @@
 package com.coder.jpaservice.controller;
 
 import com.coder.jpaservice.dto.ClientDto;
-import com.coder.jpaservice.model.ClientModel;
 import com.coder.jpaservice.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
